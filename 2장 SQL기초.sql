@@ -71,7 +71,29 @@ create table `Tb1Product`(
     `prod_company` varchar(10),
     `prod_date` date);
     
-insert into `Tb1User` set `user_id`='p103',`user_name`='장보고', `user_age`=31,`user_addr`='전남 완도군';
+insert into `Tb1Product` values(1001,'냉장고',800000,25,'LG전자','2022-01-06');
+insert into `Tb1Product` values(1002,'노트북',1200000,120,'삼성전자','2022-01-07');
+insert into `Tb1Product` values(1003,'모니터',350000,35,'LG전자','2023-01-13');
+insert into `Tb1Product` values(1004,'세탁기',1000000,80,'삼성전자','2021-01-01');
+insert into `Tb1Product` values(1005,'컴퓨터',1000000,20,'삼성전자','2023-10-01');
+insert into `Tb1Product` set `prod_no`=1006,`prod_name`='휴대폰', `prod_price`=950000,`prod_stock`=102;
 
 #실습2-9
 select * from `Tb1User`;
+select `user_name` from `tb1user`;
+select `user_name`,`user_hp` from `tb1user`;
+select * from `Tb1User` where `user_id`='p102';
+select * from `Tb1User` where `user_id`='p104' or `user_id`='p105';
+select * from `Tb1User` where `user_addr`='부산시 금정구';
+select * from `Tb1User` where `user_age`>30;
+select * from `Tb1User` where `user_hp`is null;
+update `tb1user` set `user_age`=42 where `user_id`='p104';
+update `tb1user` set `user_addr`='부산시 진구' where `user_id`='p105';
+delete from `tb1user`where`user_id`='p103';
+
+select * from `tb1product`;
+select `prod_name` from `tb1product`;
+select `prod_name`,`prod_company`,`prod_price` from `tb1product`;
+select * from `tb1product` where `prod_company`='LG전자';
+select * from `tb1product` where `prod_company`='삼성전자';
+update `tb1product` set `prod_name`='삼성전자',`prod_date`='2024-01-01' where `prod_no`=1006;
